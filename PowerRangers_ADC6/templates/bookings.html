@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List of Bookings</title>
+</head>
+<body>
+    <h1> List of Bookings</h1>
+    {% for book in booking %}
+    Booked under : {{book.cname}} <br>
+    room number : {{book.roomno}} <br>
+    room type: {{book.roomtype}}
+    Customer email : {{book.cemail}}<br>
+    Customer number : {{book.ccontact}}
+    <a href="edit/{{book.id}}">Edit this</a> <br>
+    
+    ======================================== <br>
+    {% empty %}
+        There are no room booked.
+    {% endfor %}
+</body>
+</html>

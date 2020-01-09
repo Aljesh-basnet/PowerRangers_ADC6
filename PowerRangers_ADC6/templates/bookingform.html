@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Form </title>
+</head>
+<body>
+    <form method="POST" action="save">
+        {% csrf_token %}
+        Enter customer name: <input name="CustomerName" type="text" > <br>
+        Enter room type: <input name="RoomType" type="text" > <br>
+        Enter room no: <input name="RoomNo" type="text" > <br>
+        Enter customer email: <input name="CustomerEmail" type="text" > <br>
+        Enter customer contact: <input name="CustomerContact" type="text" > <br>
+        <input type="submit">
+    </form>
+
+</body>
+</html>
