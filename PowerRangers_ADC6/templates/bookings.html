@@ -8,12 +8,13 @@
 </head>
 <body>
     <h1> List of Bookings</h1>
-    {% for book in Booking %}
+    {% for book in booking %}
     Booked under : {{book.cname}} <br>
     room number : {{book.roomno}} <br>
     room type: {{book.roomtype}}
     Customer email : {{book.cemail}}<br>
     Customer number : {{book.ccontact}}
+    <a href="edit/{{book.id}}">Edit this</a> <br>
     
     ======================================== <br>
     {% empty %}
