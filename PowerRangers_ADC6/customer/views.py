@@ -32,7 +32,7 @@ def booking_save(request):
     else:
         return HttpResponse("Error record saving")
 
-def booking_update_forms(request):
+def booking_update_forms(request, ID):
 
     print(ID)
     book_obj = BookRoom.objects.get(id=ID)
@@ -40,7 +40,7 @@ def booking_update_forms(request):
     context_varible = {
         'book':book_obj
     }
-    return render(request,'bookings/bookingupdateform.html',context_varible)
+    return render(request,'bookingsupdateform.html',context_varible)
 
 def booking_update_save(request,ID):
     book_obj = BookRoom.objects.get(id=ID)

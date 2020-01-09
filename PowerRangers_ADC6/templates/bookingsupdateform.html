@@ -9,11 +9,11 @@
 <body>
     <form method="POST" action="update/{{book.id}}">
         {% csrf_token %}
-        Update customer name: <input name="CustomerName" type="text" value="book.cname"> <br>
-        Update room type: <input name="RoomType" type="text" value="book.roomno"> <br>
-        Update room no: <input name="RoomNo" type="text" value="book.roomtype" > <br>
-        Update customer email: <input name="CustomerEmail" type="text" value="book.cemail" > <br>
-        Update customer contact: <input name="CustomerContact" type="text" value="book.ccontact"> <br>
+        Update customer name: <input name="CustomerName" type="text" value={{book.cname}}> <br>
+        Update room type: <input name="RoomType" type="text" value={{book.roomno}}> <br>
+        Update room no: <input name="RoomNo" type="text" value={{book.roomtype}} > <br>
+        Update customer email: <input name="CustomerEmail" type="text" value={{book.cemail}}> <br>
+        Update customer contact: <input name="CustomerContact" type="text" value={{book.ccontact}}> <br>
         <input type="submit">
     </form>
 
