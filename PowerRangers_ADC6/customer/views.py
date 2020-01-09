@@ -55,3 +55,12 @@ def booking_update_save(request,ID):
     book_obj.save()
 
     return HttpResponse("Record Updated!!")
+
+def delete_book(request, ID):
+    book_id = int(ID)
+    try:
+        book_sel = Book.objects.get(id = ID)
+    except Book.DoesNotExist:
+        return redirect('index')
+    book_sel.delete()
+    return redirect('index')
