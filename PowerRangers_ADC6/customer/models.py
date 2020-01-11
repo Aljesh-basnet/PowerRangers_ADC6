@@ -3,9 +3,7 @@ from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.conf import *
-#from django.utils.encoding import python_2_unicode_compatible
-from django.utils.translation import ugettext_lazy as _
-
+from django.utils.encoding import python_2_unicode_compatible
 from django_libs.models_mixins import TranslationModelMixin
 from django_countries.fields import CountryField
 from hvad.models import TranslatableModel, TranslatedFields
@@ -49,16 +47,6 @@ class Booking(models.Model):
         'sessions.Session',
         verbose_name=_('Session'),
         blank=True, null=True,
-    )
-
-    gender = models.CharField(
-        max_length=10,
-        verbose_name=_('Gender'),
-        choices=(
-            ('mrs', _('Mrs')),
-            ('mr', _('Mr')),
-        ),
-        blank=True,
     )
 
     title = models.CharField(
