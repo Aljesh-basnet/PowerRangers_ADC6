@@ -4,21 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>List of Bookings</title>
-</head>
-<body>
-    <h1> List of Bookings</h1>
-    {% for book in booking %}
-    Booked under : {{book.cname}} <br>
-    room number : {{book.roomno}} <br>
-    room type: {{book.roomtype}}
-    Customer email : {{book.cemail}}<br>
-    Customer number : {{book.ccontact}}
-    <a href="edit/{{book.id}}">Edit this</a> <br>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title> List of Bookings </title>
+<style type="text/css">
     
-    ======================================== <br>
+ 
+</style>
+
+
+</head>
+
+<body>
+    <h1> List of Bookings </h1>
+    {% for book in booking %}
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">S.no</th>
+      <th scope="col">Booked Under</th>
+      <th scope="col">room number</th>
+      <th scope="col">room type</th>
+      <th scope="col">customer email</th>
+       <th scope="col">customer number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{book.cname}} </td> 
+      <td> {{book.roomno}}</td>
+      <td>{{book.roomtype}}</td>
+      <td> {{book.cemail}}</td>
+      <td>{{book.ccontact}}
+        <a href="edit/{{book.id}}">Edit this</a> 
+        <a href="delete/{{book.id}}">Delete this</a> 
+    </td>
+    </tr>
+   
+  </tbody>
+</table>
+
+   
     {% empty %}
         There are no room booked.
     {% endfor %}
+
 </body>
 </html>

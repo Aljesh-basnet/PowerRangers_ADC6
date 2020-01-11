@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Template,Context
 from .models import BookRoom
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 
 
@@ -56,11 +58,9 @@ def booking_update_save(request,ID):
 
     return HttpResponse("Record Updated!!")
 
+
 def delete_book(request, ID):
-    book_id = int(ID)
-    try:
-        book_sel = Book.objects.get(id = ID)
-    except Book.DoesNotExist:
-        return redirect('index')
-    book_sel.delete()
-    return redirect('index')
+    book_obj = BookRoom.objects.get(id=ID)
+    BookRoom.objects.filter(id=ID).delete()
+
+    return HttpResponse("Deleted SUccessfully!!")

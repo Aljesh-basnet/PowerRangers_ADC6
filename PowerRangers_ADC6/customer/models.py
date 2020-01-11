@@ -6,6 +6,8 @@ class BookRoom(models.Model):
     roomno=models.IntegerField()
     cemail = models.EmailField()
     ccontact = models.CharField(max_length=15)
+    
+    
             
 
     def __str__(self):

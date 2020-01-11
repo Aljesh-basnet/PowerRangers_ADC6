@@ -4,18 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create Form </title>
+    <title> Create Form </title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<style type="text/css">
+    *{
+        color: whitesmoke;
+    }
+    body{
+        background-image: url("https://images.unsplash.com/photo-1416331108676-a22ccb276e35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1347&q=80");
+        
+    }
+    .form-container{
+        border:1px solid #fff;
+        padding: 20px 40px;
+      
+
+    
+    -webkit-box-shadow: -1px 4px 26px 11px rgba(0,0,0,2);
+    -moz-box-shadow:-1px 4px 26px 11px rgba(0,0,0,2);
+    box-shadow: -1px 4px 26px 11px rgba(0,0,0,2); 
+}
+
+</style>
+
+
+
 </head>
 <body>
-    <form method="POST" action="save">
-        {% csrf_token %}
-        Enter customer name: <input name="CustomerName" type="text" > <br>
-        Enter room type: <input name="RoomType" type="text" > <br>
-        Enter room no: <input name="RoomNo" type="text" > <br>
-        Enter customer email: <input name="CustomerEmail" type="text" > <br>
-        Enter customer contact: <input name="CustomerContact" type="text" > <br>
-        <input type="submit">
-    </form>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <h1> Registration</h1>
+            <!--form start-->
+             <form class="form-container" method="POST" action="save">
+                {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputName1"> Customer name : </label>
+                <input name="CustomerName" type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputRoomtype1"> Room Type: </label>
+                <input name="RoomType" type="text" class="form-control" id="exampleInputRoomtype1" placeholder="Room Type">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Room Number:</label>
+                <input name="RoomNo" type="text" class="form-control" id="exampleInputRoomnumber1" placeholder="Room number">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Customer Email:</label>
+                <input name="CustomerEmail" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Customer Number: </label>
+                <input name="CustomerContact" type="text" class="form-control" id="exampleInputcustomernumber1" placeholder="Number">
+            </div>
+            
+            <button type="submit" class="btn btn-success btn-block"> Submit</button>
+             </form>
+        </div>
+    </div>
+    
+</div>
+
 
 </body>
 </html>
