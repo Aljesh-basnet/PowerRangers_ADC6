@@ -11,7 +11,7 @@ from django.core.files.storage import FileSystemStorage
 
 def view_Booking_lists(request):
     list_of_Booking= BookRoom.objects.all()
-    print(list_of_Booking)
+    
     context_variable = {
         'booking':list_of_Booking
     }
@@ -38,9 +38,9 @@ def booking_save(request):
 
 def booking_update_forms(request, ID):
 
-    print(ID)
+    
     book_obj = BookRoom.objects.get(id=ID)
-    print(book_obj)
+    
     context_varible = {
         'book':book_obj
     }
@@ -48,9 +48,9 @@ def booking_update_forms(request, ID):
 
 def booking_update_save(request,ID):
     book_obj = BookRoom.objects.get(id=ID)
-    print(book_obj)
+    
     book_form_data = request.POST
-    print(book_form_data)
+    
     book_obj.cname = request.POST['CustomerName']
     book_obj.roomtype =request.POST['RoomType']
     book_obj.roomno = request.POST['RoomNo']
@@ -76,8 +76,8 @@ def search(request):
 
 def searchresults(request):
     query = request.POST['search']
-    results = BookRoom.objects.filter(Q(cname__icontains=query) | Q(cemail__icontains=query) | Q(ccontact__icontains=query))
-    Context = {'result': results}
+    result = BookRoom.objects.filter(Q(cname__icontains=query) | Q(cemail__icontains=query) | Q(ccontact__icontains=query))
+    Context = {'result': result}
     return render(request, 'searchlist.html', Context)
 
 
