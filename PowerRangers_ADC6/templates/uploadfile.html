@@ -3,12 +3,21 @@
 <html>
 <head>
 	<title>Upload</title>
+	<style type="text/css">
+		.p1{
+			color: green;
+			font-weight: bold;
+			border-radius: 50px;
+			border-color: black;
+
+		}
+	</style>
 </head>
 <body>
 		<form method="post" enctype="multipart/form-data">
 			 {% csrf_token %}
 			 <input type="file" name="document">
-			 <button type="submit">Upload</button>
+			 <button type="submit" class="p1">Upload</button>
 
 		</form>
 </body>
