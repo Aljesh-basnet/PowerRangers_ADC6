@@ -54,7 +54,7 @@ def booking_update_save(request,ID):
     book_obj.cemail = request.POST['CustomerEmail']
     book_obj.ccontact = request.POST['CustomerContact']
     book_obj.save()
-    
+
     return HttpResponse("Record Updated!!")
 
 
