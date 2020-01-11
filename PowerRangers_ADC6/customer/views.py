@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.template import Template,Context
 from .models import BookRoom
 from django.db.models import Q
+from django.views.generic import TemplateView
+from django.core.files.storage import FileSystemStorage
+
 
 
 
@@ -76,3 +79,11 @@ def searchresults(request):
     results = BookRoom.objects.filter(Q(cname__icontains=query) | Q(cemail__icontains=query) | Q(ccontact__icontains=query))
     Context = {'result': results}
     return render(request, 'searchlist.html', Context)
+
+
+def upload(request):
+    if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        file_object = FileSystemStorage()
+        file_object.save(uploaded_file.name, uploaded_file)
+    return render(request, 'uploadfile.html')
