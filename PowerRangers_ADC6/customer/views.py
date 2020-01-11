@@ -54,18 +54,19 @@ def booking_update_save(request,ID):
     book_obj.cemail = request.POST['CustomerEmail']
     book_obj.ccontact = request.POST['CustomerContact']
     book_obj.save()
-
+    
     return HttpResponse("Record Updated!!")
 
 
 def delete_book(request, ID):
     book_id = int(ID)
     try:
-        book_sel = Book.objects.get(id = ID)
-    except Book.DoesNotExist:
+        book_sel = BookRoom.objects.get(id = ID)
+    except BookRoom.DoesNotExist:
         return redirect('index')
     book_sel.delete()
-    return redirect('index')
+    # return redirect('index')
+    return HttpResponse("Record Deleted!!")
 
 def search(request):
     return render(request, 'search.html')
@@ -73,5 +74,5 @@ def search(request):
 def searchresults(request):
     query = request.POST['input']
     results = BookRoom.objects.filter(Q(cname__icontains=query) | Q(cemail__icontains=query) | Q(ccontact__icontains=query))
-    Context = {'result': result}
+    Context = {'result': results}
     return render(request, 'searchlist.html', Context)
