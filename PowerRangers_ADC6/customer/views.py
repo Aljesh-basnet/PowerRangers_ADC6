@@ -2,8 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Template,Context
 from .models import BookRoom
-from django.conf import settings
-from django.core.files.storage import FileSystemStorage
+from django.db.models import Q
 
 
 
@@ -60,7 +59,19 @@ def booking_update_save(request,ID):
 
 
 def delete_book(request, ID):
-    book_obj = BookRoom.objects.get(id=ID)
-    BookRoom.objects.filter(id=ID).delete()
+    book_id = int(ID)
+    try:
+        book_sel = Book.objects.get(id = ID)
+    except Book.DoesNotExist:
+        return redirect('index')
+    book_sel.delete()
+    return redirect('index')
 
-    return HttpResponse("Deleted SUccessfully!!")
+def search(request):
+    return render(request, 'search.html')
+
+def searchresults(request):
+    query = request.POST['input']
+    results = BookRoom.objects.filter(Q(cname__icontains=query) | Q(cemail__icontains=query) | Q(ccontact__icontains=query))
+    Context = {'result': result}
+    return render(request, 'searchlist.html', Context)
