@@ -40,7 +40,6 @@ class BookingCreateViewTestCase(ViewRequestFactoryTestMixin, TestCase):
         self.assertTrue(Booking.objects.all()[0].user.username, msg=(
             'Booking should have a user.'))
 
-
 class BookingDetailViewTestCase(ViewRequestFactoryTestMixin, TestCase):
     view_class = views.BookingDetailView
 
