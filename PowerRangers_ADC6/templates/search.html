@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+    <h1> Type your search </h1>
+	<form action="searchlist" method="POST">{% csrf_token %}
+		<input type="text" name="input"> <br>
+		<input type="submit" name="submit"> <br>
+    </form>
+    <h1>Search is based on customer name, customer email and customer contact</h1>
+</body>
+</html>

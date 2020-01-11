@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Template,Context
 from .models import BookRoom
+from django.db.models import Q
 
 
 
@@ -64,3 +65,12 @@ def delete_book(request, ID):
         return redirect('index')
     book_sel.delete()
     return redirect('index')
+
+def search(request):
+    return render(request, 'search.html')
+
+def searchresults(request):
+    query = request.POST['input']
+    results = BookRoom.objects.filter(Q(cname__icontains=query) | Q(cemail__icontains=query) | Q(ccontact__icontains=query))
+    Context = {'result': result}
+    return render(request, 'searchlist.html', Context)
