@@ -11,7 +11,7 @@ urlpatterns =[
     path('booking/delete/<int:ID>', views.delete_book),
     path('search/',views.search),
     path('search/searchlist',views.searchresults)
-    
+    path('upload/',views.upload),
     
    
 ]
