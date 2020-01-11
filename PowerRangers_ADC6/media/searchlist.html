@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search List</title>
+</head>
+<body>
+    <div>
+        {% for book in result %}
+            Booked under : {{book.cname}} <br>
+            room number : {{book.roomno}} <br>
+            room type: {{book.roomtype}}
+            Customer email : {{book.cemail}}<br>
+            Customer number : {{book.ccontact}}
+        {% endfor %}
+    </div>
+</body>
+</html>

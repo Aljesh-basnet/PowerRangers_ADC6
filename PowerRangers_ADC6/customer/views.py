@@ -75,7 +75,7 @@ def search(request):
     return render(request, 'search.html')
 
 def searchresults(request):
-    query = request.POST['input']
+    query = request.POST['search']
     results = BookRoom.objects.filter(Q(cname__icontains=query) | Q(cemail__icontains=query) | Q(ccontact__icontains=query))
     Context = {'result': results}
     return render(request, 'searchlist.html', Context)

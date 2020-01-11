@@ -10,8 +10,8 @@ urlpatterns =[
     path('booking/update/<int:ID>',views.booking_update_save),
     path('booking/delete/<int:ID>', views.delete_book),
     path('search/',views.search),
-    path('search/searchlist',views.searchresults)
-    path('upload/',views.upload),
+    path('search/searchlist',views.searchresults),
+    path('upload/',views.upload)
     
    
 ]
