@@ -46,17 +46,17 @@ def booking_update_forms(request, ID):
     }
     return render(request,'bookingsupdateform.html',context_varible)
 
-def booking_update_save(request,ID):
-    book_obj = BookRoom.objects.get(id=ID)
+def booking_update_save(request, ID):
+    book_object = BookRoom.objects.get(id=ID)
     
     book_form_data = request.POST
     
-    book_obj.cname = request.POST['CustomerName']
-    book_obj.roomtype =request.POST['RoomType']
-    book_obj.roomno = request.POST['RoomNo']
-    book_obj.cemail = request.POST['CustomerEmail']
-    book_obj.ccontact = request.POST['CustomerContact']
-    book_obj.save()
+    book_object.cname = request.POST['CustomerName']
+    book_object.roomtype =request.POST['RoomType']
+    book_object.roomno = request.POST['RoomNo']
+    book_object.cemail = request.POST['CustomerEmail']
+    book_object.ccontact = request.POST['CustomerContact']
+    book_object.save();
 
     return HttpResponse("Record Updated!!")
 
