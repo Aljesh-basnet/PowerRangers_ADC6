@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Form</title>
+</head>
+<body>
+        <h1>Login</h1> <br>
+    =========================================<br>
+    <form method="POST">
+        {% csrf_token %}
+        Enter Username: <input type="text" name="input_username"> <br>
+        Enter Password: <input type="password" name="input_password"> <br>
+        <input type="submit"> 
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div> 
+</body>
+</html>
